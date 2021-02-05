@@ -19,7 +19,7 @@
   HOW TO USE MANUALADD.PY
   You can manually add users. Choose an account, enter filename and the group then it'll add
   IMPORTANT- Before using manualadd.py, distribute CSV files based on number of accounts you wanna use
-  using tsadder.py
+  using tsadder.py. Follow {TSADDER.PY} tutorial to distribute
   You can add from many accs at a time using manual. Its just like tsadder, but only difference is that its not
   automated. You can run the script from multiple accs at the same time
   For example-
@@ -80,10 +80,10 @@
   1) Before adding, you need users to scrape from a public group
   2) So launch it in cmd
   >>> python scraper.py
-  3) Enter username of the group from where you wanna scrape users
+  ----> Choose an account to scrape users
+  3)Then enter username of the group from where you wanna scrape users
   Suppose the username is @this_group
   then enter 'this_group' in input[OMIT @]
-  [NOTE] Scraper will use the first account specified in vars.txt
   [NOTE] The tool may ask for login code[only in first time login or no .session file]
   Scrapped accounts will be saved in members.csv
 ==========================================================================================================
@@ -97,10 +97,12 @@
   4) It'll intelligently filter all banned accounts and will use only the active ones
   5) Next, same as scraper.py, it'll ask for public grp username. Enter the exact value
   [UNIQUE] Then it'll join the public group from all accounts and will remove any accs that are banned in that grp
+  6) NEXT, it'll ask for number of accounts to use. Recommended[10 if you have more than 10 accounts]
   [RARE] After that, it'll divide values in members.csv into segments and will generate new CSV files according to 
   the number of accounts to be used
   Suppose I have 2 accounts, then members.csv will be redistributed into members0.csv and members1.csv
-  6) NEXT, it'll ask for number of accounts to use. Recommended[10 if you have more than 10 accounts]
+  IF YOU ARE USING IN TERMUX OR LINUX. TSADDER WILL HALT TILL HERE AS AUTOMATION WORKS IN WINDOWS ONLY
+  YOU CAN ADD USING MANUALADD.PY AND USE THE DISTRIBUTED CSV FILES TO ADD MEMBERS
   7) Then it'll ask whether to add by username or by id. Choose the desired option
   |What is add by id|
   It means the users are added based on their user IDs. The entities are retrieved using their IDs
