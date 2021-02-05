@@ -4,7 +4,7 @@
   <a href="https://t.me/joinchat/AAAAAEivg18nL5WJOPdokA"><img src="https://img.shields.io/badge/Telegram-HackTronix1-green"></a> <a href="https://www.instagram.com/cryptonian0"><img src="https://img.shields.io/badge/FollowOn-Instagram-green"></a>
   </p>
 
-# Features :star:
+# :small_red_triangle_down: Features :small_red_triangle:
 
 * You can run unlimited accounts at the same time in order to add members
 * CSV files auto-distributer based on number of accounts to use
@@ -25,7 +25,7 @@
 
 :cyclone: Read the complete tutorial `HOW_TO_USE.txt` and use it
 
-# Support :sparkles:
+# Support :dart:
 <p align='center'>
   For any issue or help join our <a href='https://t.me/HackTronix_Hub'> Hub </a><br>
   Contact me on Telegram for help @Cryptonian_007<br><br>
