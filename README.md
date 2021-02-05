@@ -1,10 +1,10 @@
-# Genisys V2.1
+# :fire: Genisys V2.1
 <p align='center'>
   Powerful Telegram Members Scraping and Adding Toolkit<br>
   <a href="https://t.me/joinchat/AAAAAEivg18nL5WJOPdokA"><img src="https://img.shields.io/badge/Telegram-HackTronix1-green"></a> <a href="https://www.instagram.com/cryptonian0"><img src="https://img.shields.io/badge/FollowOn-Instagram-green"></a>
   </p>
 
-# Features
+# Features :star:
 
 * You can run unlimited accounts at the same time in order to add members
 * CSV files auto-distributer based on number of accounts to use
@@ -17,15 +17,15 @@
 * Genisys can also store unlimited accounts for adding purposes
 * Adding scripts launches automatically based on number of accounts to use
 
-# How to use
+# How to use :question:
 
-* Install Requirements
+:cyclone: Install Requirements
 
 `pip install -r requirements.txt`
 
-* Read the complete tutorial `HOW_TO_USE.txt` and use it
+:cyclone: Read the complete tutorial `HOW_TO_USE.txt` and use it
 
-# Support
+# Support :sparkles:
 <p align='center'>
   For any issue or help join our <a href='https://t.me/HackTronix_Hub'> Hub </a><br>
   Contact me on Telegram for help @Cryptonian_007<br><br>
@@ -33,6 +33,6 @@
   <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/img1.jpg" width="500" height="250">
   </p>
   
-# Warning
+# Warning :warning:
 
 * This tool is official and completely free to use. Do not buy if anyone tries to sell by copying script 
