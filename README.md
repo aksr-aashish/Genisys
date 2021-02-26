@@ -29,8 +29,7 @@
 
 # Support :dart:
 <p align='center'>
-  For any issue or help join our <a href='https://telegram.me/HackTronix_Hub'> Hub </a><br>
-  Contact me on Telegram for help @Cryptonian_007<br><br>
+  For any issue or help join our <a href='https://telegram.me/HackTronix_Hub'> Hub </a><br><br>
   <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/img2.png" width="500" height="300"><br>
   <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/img1.jpg" width="500" height="250">
   </p>
