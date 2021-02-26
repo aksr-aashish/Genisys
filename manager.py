@@ -30,29 +30,12 @@ while True:
     print(r)
     print(banner)
     print(n)
-    print(lg+'\n[1] Add new accounts and remove old ones'+n)
-    print(lg+'[2] Add new accounts to existing ones'+n)
-    print(lg+'[3] Filter all banned accounts'+n)
-    print(lg+'[4] List out all the accounts'+n)
-    print(lg+'[5] Delete specific accounts'+n)
+    print(lg+'[1] Add new accounts'+n)
+    print(lg+'[2] Filter all banned accounts'+n)
+    print(lg+'[3] List out all the accounts'+n)
+    print(lg+'[4] Delete specific accounts'+n)
     a = int(input('\nEnter your choice: '))
     if a == 1:
-        with open('vars.txt', 'wb') as f:
-            while True:
-                a = int(input('Enter API ID: '))
-                b = str(input('Enter API Hash: '))
-                c = str(input('Enter Phone Number: '))
-                pickle.dump([a, b, c], f)
-                ab = input('Do you want to add more accounts?[y/n]: ')
-                if 'y' in ab:
-                    pass
-                else:
-                    print('\n'+lg+'[i] Saved all accounts in vars.txt'+n)
-                    f.close()
-                    sleep(3)
-                    break
-        f.close()
-    elif a == 2:
         with open('vars.txt', 'ab') as g:
             while True:
                 a = int(input('Enter API ID: '))
@@ -68,7 +51,7 @@ while True:
                     sleep(3)
                     break
         g.close()
-    elif a == 3:
+    elif a == 2:
         accounts = []
         banned_accs = []
         h = open('vars.txt', 'rb')
@@ -110,7 +93,7 @@ while True:
                 k.close()
                 print(lg+'[i] All banned accounts removed'+n)
                 input('\nPress enter to goto main menu')
-    elif a == 4:
+    elif a == 3:
         display = []
         j = open('vars.txt', 'rb')
         while True:
@@ -125,7 +108,7 @@ while True:
             print(z)
         input('\nPress enter to goto main menu')
 
-    elif a == 5:
+    elif a == 4:
         accs = []
         f = open('vars.txt', 'rb')
         while True:
