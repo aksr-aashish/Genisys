@@ -50,7 +50,7 @@ class Relog:
             writer = csv.writer(f, delimiter=",", lineterminator="\n")
             writer.writerow(['username', 'user id', 'access hash', 'group', 'group id'])
             for user in self.lst:
-                writer.writerow([user['username'], user['user_id'], user['access_hash'], user['group'], user['group_id']])
+                writer.writerow([user['username'], user['id'], user['access_hash'], user['group'], user['group_id']])
             f.close()
 def update_list(lst, temp_lst):
     count = 0

@@ -14,27 +14,6 @@
   |Message for leechers- DON'T COPY CODE WITHOUT CREDITS BITCH!|
   --------------------------------------------------------------
 
-  |NEW UPDATE||READ ONLY AFTER YOU'VE READ THE GUIDE|
-  ---> tsadder.py major bug fixed
-  HOW TO USE MANUALADD.PY
-  You can manually add users. Choose an account, enter filename and the group then it'll add
-  IMPORTANT- Before using manualadd.py, distribute CSV files based on number of accounts you wanna use
-  using tsadder.py. Follow {TSADDER.PY} tutorial to distribute
-  You can add from many accs at a time using manual. Its just like tsadder, but only difference is that its not
-  automated. You can run the script from multiple accs at the same time
-  For example-
-    You launched manualadd.py and chose and account 'JOEY' to add users and you wanna run two accs
-    Then do this-
-        Relaunch manualadd.py. Don't close the previous window! It's adding users from JOEY acc
-        Choose another account suppose MARK. Then you'll have two windows in total
-        same script running from different accounts ;)
-        DO NOT USE THE SAME CSV FILE. THAT'S Y I TOLD TO DISTRIBUTE FILES USING TSADDER
-
-   |GOOD NEWS|
-   ---------
-   Though complete automation supports only windows, you can use manualadd.py in Termux(Android) or any
-   other platform and add users from many accs at the same time!
-   ---------
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||GUIDE||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
   |NOTE|

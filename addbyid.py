@@ -49,7 +49,7 @@ class Relog:
             writer = csv.writer(f, delimiter=",", lineterminator="\n")
             writer.writerow(['username', 'user id', 'access hash', 'group', 'group id'])
             for user in self.lst:
-                writer.writerow([user['username'], user['user_id'], user['access_hash'], user['group'], user['group_id']])
+                writer.writerow([user['username'], user['id'], user['access_hash'], user['group'], user['group_id']])
             f.close()
 def update_list(lst, temp_lst):
     count = 0
@@ -81,52 +81,19 @@ print(f'{info}{g} Getting entities{rs}\n')
 target_m = client.get_entity(scraped)
 client.get_participants(target_m, aggressive=True)
 print(f'{info}{g} Adding members to {group_name}{rs}\n')
-added_users = []
-for user in users:
-    n += 1
-    if n % 50 == 0:
-        print(f'{sleep}{g} Sleep 2 min to prevent possible account ban{rs}')
-        time.sleep(120)
-    try:
-        print(user)
+while True:
+    if len(users) == 0:
+        break
+    added_users = []
+    lol = []
+    for user in users[:10]:
         added_users.append(user)
-        user_to_add = client.get_entity(user['id'])
-        client(InviteToChannelRequest(entity, [user_to_add]))
-        us_id = user['id']
-        print(f'{attempt}{g} Adding {us_id}{rs}')
-        print(f'{sleep}{g} Sleep 20s{rs}')
-        time.sleep(20)
-    except PeerFloodError:
-        print(f'\n{error}{r} Aborted. Peer Flood Error{rs}')
-        count = 0
-        while count <= len(added_users):
-            del users[0]
-            count += 1
-        if not len(users) == 0:
-            with open(file, 'w', encoding='UTF-8') as f:
-                writer = csv.writer(f, delimiter=',', lineterminator='\n')
-                writer.writerow(['username', 'user id', 'access hash', 'group', 'group id'])
-                for user in users:
-                    writer.writerow([user['username'], user['id'], user['access_hash'], user['group'], user['group_id']])
-                f.close()  
-    except UserPrivacyRestrictedError:
-        print(f'{error}{r} User Privacy Error[non-serious]{rs}')
-        continue
-    except ValueError:
-        print(f'{error}{r} Error in processing entity{rs}')
-        continue
-    except KeyboardInterrupt:
-        print(f'{error}{r} Aborted. Keyboard Interrupt{rs}')
-        update_list(users, added_users)
-        if not len(users) == 0:
-            print(f'{info}{g} Remaining users logged to {file}')
-            logger = Relog(users, file)
-            logger.start()
-    except Exception as e:
-        print(f'{error}{r} Some Other error in adding{rs}')
-        print(e)
-        continue
-length = str(len(users))
-print(f'{info}{g}{length} attempts completed.')
-os.system(f'del {file}')
-sys.exit()
+        user_entity = client.get_entity(user['id'])
+        lol.append(user_entity)
+    client(InviteToChannelRequest(entity, lol))
+    print(f'{info}{g} Adding 10 users in bulk...')
+    print(f'{info}{g} Sleep 20s')
+    time.sleep(20)
+    users = update_list(users, added_users)
+print(f'{info}{g} Members added successfully')
+exit()
