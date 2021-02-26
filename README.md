@@ -8,6 +8,7 @@
 
 * ADDS IN BULK[by user id, not by username]
 * Scrapes and adds to public groups
+* Works in Windows systems
 * You can run unlimited accounts at the same time in order to add members
 * CSV files auto-distributer based on number of accounts to use
 * Powerful scraping tool that can scrape active members from any public group
@@ -15,7 +16,6 @@
 * Least chances of account ban
 * Script auto-joins public group from all accounts for faster adding
 * Filters banned accounts and remove them, making things easy
-* Works in Windows
 * Genisys can also store unlimited accounts for adding purposes
 * Adding scripts launches automatically based on number of accounts to use
 
@@ -26,6 +26,18 @@
 `pip install -r requirements.txt`
 
 :cyclone: Read the complete tutorial `HOW_TO_USE.txt` and use it
+
+* Add your accounts to add and scrape members
+
+`python manager.py`
+
+* Scrape members
+
+`python scraper.py`
+
+* Add members
+
+`python tsadder.py`
 
 # Support | Gallery :dart:
 <p align='center'>
