@@ -37,7 +37,7 @@ def clr():
 
 clr()
 banner()
-print(info + lg + ' Version: 2.1 | Author: Cryptonian | TG- @Cryptonian_007' + rs)
+print(info + lg + ' Version: 2.1 | Author: Cryptonian' + rs)
 print(info + lg + ' Filter active users without any hassle!' + rs + '\n')
 f = open('vars.txt', 'rb')
 accs = []
