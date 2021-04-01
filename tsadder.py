@@ -138,7 +138,7 @@ for i in accounts[:a]:
     with open(file, 'w', encoding='UTF-8') as f:
         writer = csv.writer(f, delimiter=',', lineterminator='\n')
         writer.writerow(['username', 'user id', 'access hash', 'group', 'group id'])
-        for user in users[:50]:
+        for user in users[:60]:
             writer.writerow([user['username'], user['user_id'], user['access_hash'], user['group'], user['group_id']])
             done.append(user)
     f.close()
