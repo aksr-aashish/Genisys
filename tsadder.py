@@ -14,6 +14,7 @@ from colorama import init, Fore
 import os
 import pickle
 import traceback
+'''
 try:
     import beepy
 except ImportError:
@@ -21,6 +22,7 @@ except ImportError:
         os.system('pip install beepy')
     else:
         pass
+'''
 
 init()
 
@@ -198,4 +200,4 @@ for account in to_use:
     keyboard.write('python' + ' ' + program + ' ' + api_id + ' ' + api_hash + ' ' + phone + ' ' + file + ' ' + group + ' ' + str(scraped_grp))
     keyboard.press_and_release('Enter')
     print(f'{success}{lg} Launched from {phone}')
-beepy.beep(sound='ping')
+#beepy.beep(sound='ping')
