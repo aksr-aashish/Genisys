@@ -49,7 +49,7 @@ Sometimes users may not get added at all, this may be because the account is pro
 # Support | Gallery :dart:
 <p align='center'>
   For any issue or help join our <a href='https://telegram.me/Techmedies_Hub'> Hub </a><br><br>
-  <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/img2.png" width="605" height="464">
+  <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/img2.png" width="302.5" height="232">
   </p>
   
 # Warning :warning:
