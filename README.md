@@ -1,4 +1,4 @@
-# :fire: Genisys V2.1
+# :fire: Genisys V2.5
 <p align='center'>
   Powerful Telegram Members Scraping and Adding Toolkit<br>
   <a href="https://telegram.me/Techmedies_1"><img src="https://img.shields.io/badge/Telegram-Techmedies-green"></a> <a href="https://www.instagram.com/cryptonian0"><img src="https://img.shields.io/badge/FollowOn-Instagram-green"></a>
@@ -49,7 +49,7 @@ Sometimes users may not get added at all, this may be because the account is pro
 # Support | Gallery :dart:
 <p align='center'>
   For any issue or help join our <a href='https://telegram.me/Techmedies_Hub'> Hub </a><br><br>
-  <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/img2.png" width="302.5" height="232">
+  <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/img2.png" width="403" height="309">
   </p>
   
 # Warning :warning:
