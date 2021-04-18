@@ -47,7 +47,7 @@ while True:
                 c = str(input(f'{lg}Enter Phone Number: {r}'))
                 p = ''.join(c.split())
                 pickle.dump([a, b, p], g)
-                ab = input(f'\n{f}Do you want to add more accounts?[y/n]: ')
+                ab = input(f'\nDo you want to add more accounts?[y/n]: ')
                 if 'y' in ab:
                     pass
                 else:
