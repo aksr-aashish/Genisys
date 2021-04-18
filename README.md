@@ -22,6 +22,8 @@
 
 # How to use :question:
 
+<b>Suggestion: It is better to add by ID because if you add by username only users having usernames will be added. Moreover, it is slow</b>
+
 :cyclone: Install Requirements
 
 `pip install -r requirements.txt`

@@ -20,16 +20,16 @@ w = Fore.WHITE
 cy = Fore.CYAN
 ye = Fore.YELLOW
 colors = [r, g, w, ye, cy]
-info = g + '[' + w + 'INFO' + g + ']' + rs
-attempt = g + '[' + w + 'ATTEMPT' + g + ']' + rs
-sleep = g + '[' + w + 'SLEEP' + g + ']' + rs
-error = g + '[' + r + 'ERROR' + g + ']' + rs
+info = g + '[' + w + 'i' + g + ']' + rs
+attempt = g + '[' + w + '+' + g + ']' + rs
+sleep = g + '[' + w + '*' + g + ']' + rs
+error = g + '[' + r + '!' + g + ']' + rs
 def banner():
     f = pyfiglet.Figlet(font='slant')
     logo = f.renderText('Genisys')
     print(random.choice(colors) + logo + rs)
-    print(f'{info}{g} Genisys Adder V2.1 by Cryptonian{rs}')
-    print(f'{info}{g} Telegram- @Cryptonian_007{rs}\n')
+    print(f'{info}{g} Genisys Adder[ID] V2.1{rs}')
+    print(f'{info}{g} Author: github.com/Cryptonian007{rs}\n')
 def clscreen():
     os.system('cls')
 clscreen()
@@ -40,24 +40,16 @@ phone = str(sys.argv[3])
 file = str(sys.argv[4])
 group = str(sys.argv[5])
 scraped = str(sys.argv[6])
-class Relog:
-    def __init__(self, lst, filename):
-        self.lst = lst
-        self.filename = filename
-    def start(self):
-        with open(self.filename, 'w', encoding='UTF-8') as f:
-            writer = csv.writer(f, delimiter=",", lineterminator="\n")
-            writer.writerow(['username', 'user id', 'access hash', 'group', 'group id'])
-            for user in self.lst:
-                writer.writerow([user['username'], user['id'], user['access_hash'], user['group'], user['group_id']])
-            f.close()
+
 def update_list(lst, temp_lst):
     count = 0
     while count != len(temp_lst):
         del lst[0]
         count += 1
     return lst
+
 users = []
+
 with open(file, 'r', encoding='UTF-8') as f:
     rows = csv.reader(f, delimiter=',', lineterminator='\n')
     next(rows, None)
@@ -70,7 +62,7 @@ with open(file, 'r', encoding='UTF-8') as f:
         user['group_id'] = row[4]
         users.append(user)
     f.close()
-client = TelegramClient(phone, api_id, api_hash)
+client = TelegramClient(f'sessions\\{phone}', api_id, api_hash)
 client.connect()
 time.sleep(1.5)
 target_group = client.get_entity(group)

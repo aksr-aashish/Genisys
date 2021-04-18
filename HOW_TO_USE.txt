@@ -1,106 +1,67 @@
-   ====================================
-      ____            _
-     / ___| ___ _ __ (_)___ _   _ ___
-    | |  _ / _ \ '_ \| / __| | | / __|
-    | |_| |  __/ | | | \__ \ |_| \__ \
-     \____|\___|_| |_|_|___/\__, |___/
-                            |___/
-   ====================================
-   #GenisysOnGithub
-   Works best on PYTHON 3.8
-  ______________________________________________________________
-  |Genisys Telegram Scraper and Adder Pack V2.1                |
-  |Developer - Cryptonian[Telegram- @Cryptonian_007]           |
-  |Message for leechers- DON'T COPY CODE WITHOUT CREDITS BITCH!|
-  --------------------------------------------------------------
+==How to use Genisys== [simple guide]
 
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||GUIDE||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+COPY CODE WITH CREDITS
 
-  |NOTE|
+Follow me on Twitter - @Cryptonian007
+Also, if you enjoyed using the tool, do give it a star on GitHub
 
-  The folder is recommended to be stored in Desktop
-  Install libraries by opening cmd in the 'Genisys' folder and typing
-  >>> pip install -r requirements.txt
+CONTENTS
 
-  |ABOUT|
+1) Steps to use
+2) Troubleshooting
 
-  This is a simple guide that will help you to use this script properly
+==STEPS TO USE==
 
-  ||STEPS TO USE||
+step 1: Storing accounts using manager.py for scraping and adding purposes
 
-  {MANAGER.py}
+i) Open terminal in the Genisys directory and enter command
+>>> python manager.py
+ii) If you wanna enter new accounts, choose option 1
+    Enter Api id, Api hash and phone number
+    if you want to add more accounts, enter 'y' ; if not then enter 'n' and hit enter
+iii) If you wanna filter all banned accounts, choose option 2. It'll delete all banned accounts
+iv) To show all accounts, choose option 3
+v) To delete accounts, choose option 4
+   Then choose an account to delete and hit enter
 
-  1) For scraping and adding , you need Telegram accounts
-   You can create new accounts in Telegram using virtual numbers
 
-  2) After you've created accounts, goto my.telegram.org
+step 2: Scraping members using scraper.py
 
-  3) Perform user authentication
+i) Run in terminal >>> python scraper.py
+ii) Choose an account in order to scrape and hit enter
+iii) Choose whether to scrape from public group or private group
+     PUBLIC GROUPS
+     Suppose public group username is @ThisGroup. Enter only 'ThisGroup'. Omit '@' and hit enter
+     PRIVATE GROUPS
+     Copy invite link and paste in the terminal and hit enter
+  
+     Then it'll scrape members
+ 
+     Then it'll ask whether to filter active users[LAST SEEN RECENTLY]. Choose y/n and proceed
 
-  4) After that, goto API Development Tools. Fill out the form. Lastly, click on 'Other' radiobutton
-  then specify the reason in the textbox eg- 'App testing tool Telegram'
+step 3: Adding members using tsadder.py
 
-  5) When you proceed, you'll get API id, API hash. we require it for manager.py
+i) Launch in terminal >>> python tsadder.py
+ii) It'll create sessions and will ask for login code if not logged in. IF YOU DO NOT HAVE LOGIN CODE,
+    PRESS 's' AND HIT ENTER TO SKIP
+iii) Then enter username of the public group without @ sign. It'll join from all accounts
+iv) Then enter number of accounts to use
+EACH ACCOUNT WILL GET 60 USERS TO ADD. IT MAY BE LESS THAN 60 DUE TO PRIVACY RESTRICTIONS OR PEER FLOOD ERROR
+v) Choose whether to add by username or by user ID
+vi) Then read the warning and press enter to proceed
+vii) It'll launch scripts and it'll add members
 
-  6) Now launch manager.py. Open cmd in the same location and type >>> python manager.pyc
 
-  7) If you are using for the first time, you can go for the first option
-  If you already have accounts and want to add new to existing, you can go for option 2
+==TROUBLESHOOTING==
 
-  8) Enter the values. If you wanna use more than one account then type 'y' and enter
+1) Members not getting added
 
-----------  THE ACCOUNTS WILL BE STORED IN Vars.txt. DO NOT DELETE IT----------
+Ans- It may be because the account is probably limited. Try other accounts
 
-  9) If you have banned accounts and wanna remove them, then choose banfilter option
-  It'll intelligently remove all banned accounts and will update vars.txt
-==========================================================================================================
-  {SCRAPER.PY}
+2) Error while logging in
 
-  1) Before adding, you need users to scrape from a public group
-  2) So launch it in cmd
-  >>> python scraper.py
-  ----> Choose an account to scrape users
-  3)Then enter username of the group from where you wanna scrape users
-  Suppose the username is @this_group
-  then enter 'this_group' in input[OMIT @]
-  [NOTE] The tool may ask for login code[only in first time login or no .session file]
-  Scrapped accounts will be saved in members.csv
-==========================================================================================================
-  {TSADDER.PY}
+Ans- If you have 2 factor authentication on, turn it off. After login, you can turn it on again
 
-  1) Now it's time to add users!
-  2) Launch in cmd
-  >>> python tsadder.py
-  3) Firstly, master script will create sessions for all the accounts
-  Enter required login code if it asks[you'll get in Tg app]
-  4) It'll intelligently filter all banned accounts and will use only the active ones
-  5) Next, same as scraper.py, it'll ask for public grp username. Enter the exact value
-  [UNIQUE] Then it'll join the public group from all accounts and will remove any accs that are banned in that grp
-  6) NEXT, it'll ask for number of accounts to use. Recommended[10 if you have more than 10 accounts]
-  [RARE] After that, it'll divide values in members.csv into segments and will generate new CSV files according to 
-  the number of accounts to be used
-  Suppose I have 2 accounts, then members.csv will be redistributed into members0.csv and members1.csv
-  IF YOU ARE USING IN TERMUX OR LINUX. TSADDER WILL HALT TILL HERE AS AUTOMATION WORKS IN WINDOWS ONLY
-  YOU CAN ADD USING MANUALADD.PY AND USE THE DISTRIBUTED CSV FILES TO ADD MEMBERS
-  7) Then it'll ask whether to add by username or by id. Choose the desired option
-  |What is add by id|
-  It means the users are added based on their user IDs. The entities are retrieved using their IDs
-  |What is add by username|
-  It means adding users based on their usernames. ONLY USERS HAVING USERNAMES WILL BE ADDED
+Any problems, open issue at GitHub or join Telegram group - Techmedies_Hub
 
-  |IMPORTANT|
 
-  TSADDER is a bit unusual. It retrieves users from members.csv and updates it. So if you run TSADDER many 
-  times(maybe due to errors or something) you are basically losing members from members.csv
-  You can scrape it again from the same group to get al the members
-
-  |ATTENTION|
-
-  AFTER STEP 7, READ WARNINGS CAREFULLY AND PROCEED. THIS WILL BE FULLY AUTOMATED.
-  WHEN COUNTDOWN STARTS, STAY AWAY FROM KEYBOARD AND MOUSE [STAY AWAY FROM PC]
-  MASTER SCRIPT WILL LAUNCH AS MANY CMD WINDOWS AS THE NUMBER OF ACCOUNTS USED
-  WAIT TILL YOU HEAR A BEEP SOUND
-  IF YOU DON'T HAVE SPEAKERS, WAIT TILL THE POP-UP STOPS
-  FOR THIS, YOUR PC MUST NOT BE TOO LAGGY ELSE IT'LL FREEZE
-  SO RECOMMENDED ACCOUNTS TO RUN AT ONCE IS 10
-=============================================================================================================

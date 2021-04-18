@@ -1,23 +1,27 @@
 from telethon.sync import TelegramClient
 from telethon.errors.rpcerrorlist import PhoneNumberBannedError
-import pickle
-import pyfiglet
+import pickle, pyfiglet
 from colorama import init, Fore
-import os
+import os, random
 from time import sleep
 
 init()
+
+lg = Fore.LIGHTGREEN_EX
+w = Fore.WHITE
+cy = Fore.CYAN
+ye = Fore.YELLOW
 r = Fore.RED
 n = Fore.RESET
-lg = Fore.LIGHTGREEN_EX
-f = pyfiglet.Figlet(font='slant')
-banner = f.renderText('Genisys')
-print(r)
-print(banner)
-print(n)
-print('\n'+lg+'Genisys Account Manager V2.1'+n)
-print('Author: Cryptonian | TG- @Cryptonian_007\n')
-sleep(4)
+colors = [lg, r, w, cy, ye]
+
+def banner():
+	f = pyfiglet.Figlet(font='slant')
+	banner = f.renderText('Genisys')
+	print(f'{random.choice(colors)}{banner}{n}')
+	print(r+'  Version: 2.1 | Author: Cryptonian'+n+'\n')
+#print('Author: github.com/Cryptonian007\n')
+#sleep(4)
 
 def clr():
     if os.name == 'nt':
@@ -27,22 +31,23 @@ def clr():
 
 while True:
     clr()
-    print(r)
-    print(banner)
-    print(n)
+    #print(r)
+    banner()
+    #print(n)
     print(lg+'[1] Add new accounts'+n)
     print(lg+'[2] Filter all banned accounts'+n)
     print(lg+'[3] List out all the accounts'+n)
     print(lg+'[4] Delete specific accounts'+n)
-    a = int(input('\nEnter your choice: '))
+    a = int(input(f'\nEnter your choice: {r}'))
     if a == 1:
         with open('vars.txt', 'ab') as g:
             while True:
-                a = int(input('Enter API ID: '))
-                b = str(input('Enter API Hash: '))
-                c = str(input('Enter Phone Number: '))
-                pickle.dump([a, b, c], g)
-                ab = input('Do you want to add more accounts?[y/n]: ')
+                a = int(input(f'\n{lg}Enter API ID: {r}'))
+                b = str(input(f'{lg}Enter API Hash: {r}'))
+                c = str(input(f'{lg}Enter Phone Number: {r}'))
+                p = ''.join(c.split())
+                pickle.dump([a, b, p], g)
+                ab = input(f'\n{f}Do you want to add more accounts?[y/n]: ')
                 if 'y' in ab:
                     pass
                 else:
@@ -69,7 +74,7 @@ while True:
                 api_id = int(account[0])
                 api_hash = str(account[1])
                 phone = str(account[2])
-                client = TelegramClient(phone, api_id, api_hash)
+                client = TelegramClient(f'sessions\\{phone}', api_id, api_hash)
                 client.connect()
                 if not client.is_user_authorized():
                     try:
@@ -102,10 +107,14 @@ while True:
             except EOFError:
                 break
         j.close()
-        print('API ID,  API Hash,  Phone')
         print('\n')
+        print(f'API ID  |            API Hash              |    Phone')
+        print(f'==========================================================')
+        i = 0
         for z in display:
-            print(z)
+            print(f'{z[0]} | {z[1]} | {z[2]}')
+            i += 1
+        print(f'==========================================================')
         input('\nPress enter to goto main menu')
 
     elif a == 4:
@@ -118,17 +127,17 @@ while True:
                 break
         f.close()
         i = 0
-        print(f'{lg}[i] Choose an account to delete')
+        print(f'{lg}[i] Choose an account to delete\n')
         for acc in accs:
-            print(f'{lg}[{i}] {acc}{n}')
+            print(f'{lg}[{i}] {acc[2]}{n}')
             i += 1
-        index = int(input(f'{lg}[+] Enter a choice: {n}'))
+        index = int(input(f'\n{lg}[+] Enter a choice: {n}'))
         phone = str(accs[index][2])
         session_file = phone + '.session'
         if os.name == 'nt':
-            os.system(f'del {session_file}')
+            os.system(f'del sessions\\{session_file}')
         else:
-            os.system(f'rm {session_file}')
+            os.system(f'rm sessions/{session_file}')
         del accs[index]
         f = open('vars.txt', 'wb')
         for account in accs:

@@ -19,10 +19,10 @@ w = Fore.WHITE
 cy = Fore.CYAN
 
 
-info = lg + '[' + w + 'INFO' + lg + ']' + rs
-error = lg + '[' + r + 'ERROR' + lg + ']' + rs
-success = w + '[' + lg + 'SUCCESS' + w + ']' + rs
-INPUT = lg + '[' + w + 'INPUT' + lg + ']' + rs
+info = lg + '(' + w + 'i' + lg + ')' + rs
+error = lg + '(' + r + '!' + lg + ')' + rs
+success = w + '(' + lg + '+' + w + ')' + rs
+INPUT = lg + '(' + cy + '~' + lg + ')' + rs
 colors = [lg, w, r, cy]
 def banner():
     f = pyfiglet.Figlet(font='slant')
@@ -37,8 +37,7 @@ def clr():
 
 clr()
 banner()
-print(info + lg + ' Version: 2.1 | Author: Cryptonian' + rs)
-print(info + lg + ' Filter active users without any hassle!' + rs + '\n')
+print(f'  {r}Version: {w}2.5 {r}| Author: {w}Cryptonian{rs}\n')
 f = open('vars.txt', 'rb')
 accs = []
 while True:
@@ -47,37 +46,45 @@ while True:
     except EOFError:
         f.close()
         break
-print(f'{INPUT}{lg} Choose an account to scrape members')
+print(f'{INPUT}{cy} Choose an account to scrape members\n')
 i = 0
 for acc in accs:
-    print(f'{lg}[{w}{i}{lg}] {acc}')
+    print(f'{lg}({w}{i}{lg}) {acc[2]}')
     i += 1
-ind = int(input(f'{INPUT}{lg} Enter choice: '))
+ind = int(input(f'\n{INPUT}{cy} Enter choice: '))
 api_id = accs[ind][0]
 api_hash = accs[ind][1]
 phone = accs[ind][2]
-client = TelegramClient(phone, api_id, api_hash)
+client = TelegramClient(f'sessions\\{phone}', api_id, api_hash)
 client.connect()
 if not client.is_user_authorized():
     try:
         client.send_code_request(phone)
-        code = input(f'{INPUT}{lg} Enter the code for {phone}{r}: ')
+        code = input(f'{INPUT}{lg} Enter the login code for {w}{phone}{r}: ')
         client.sign_in(phone, code)
     except PhoneNumberBannedError:
-        print(f'{error}{r}{phone} is banned!{rs}')
-        print(f'{error}{r} Run manager.py to filter them{rs}')
+        print(f'{error}{w}{phone}{r} is banned!{rs}')
+        print(f'{error}{lg} Run {w}manager.py{lg} to filter them{rs}')
         sys.exit()
-username = input(f'{INPUT}{lg} Enter the exact username of the public group[Without @]: {r}')
-target_grp = 't.me/' + str(username)
-group = client.get_entity(target_grp)
+print(f'{info}{lg} Choose an option: ')
+print(f'({w}0{lg}) Scrape from public group')
+print(f'({w}1{lg}) Scrape from private group')
+op = int(input(f'{INPUT}{lg} Enter choice: '))
+if op == 0:
+    username = input(f'{INPUT}{cy} Enter the exact username of the public group[Without @]: {r}')
+    target_grp = 't.me/' + str(username)
+    group = client.get_entity(target_grp)
+else:
+    target_grp = input(f'{INPUT}{cy} Enter private group invite link: {r}')
+    group = client.get_entity(target_grp)
 time = datetime.datetime.now().strftime("%H:%M")
-print('\n' + info + lg + ' Started on ' + str(time) + rs)
-print(f'{info}{lg} Scraping members from {rs}' + str(group.title))
+print('\n' + info + lg + ' Started at ' + rs + str(time))
+print(f'{info}{lg} Scraping members from {w}' + str(group.title))
 members = []
 members = client.get_participants(group, aggressive=True)
-print(f'{info}{lg} Saving in members.csv...{rs}')
+print(f'{info}{lg} Saving in {w}members.csv{rs}')
 select = str(input(f'{INPUT}{lg} Do you wanna filter active users?[y/n]: '))
-with open("members.csv", "w", encoding='UTF-8') as f:
+with open("members\\members.csv", "w", encoding='UTF-8') as f:
     writer = csv.writer(f, delimiter=",", lineterminator="\n")
     writer.writerow(['username', 'user id', 'access hash', 'group', 'group id'])
     if select == 'y':
@@ -91,7 +98,7 @@ with open("members.csv", "w", encoding='UTF-8') as f:
                 else:
                     username = ''
                 writer.writerow([username, member.id, member.access_hash, group.title, group.id])
-        print(f'{success}{lg} Filtered!')
+        print(f'{success}{lg} Filtered by {w}LastSeenRecently')
     else:
         for member in members:
             if member.username:
