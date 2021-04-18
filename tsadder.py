@@ -41,7 +41,7 @@ def banner():
     f = pyfiglet.Figlet(font='slant')
     logo = f.renderText('Genisys')
     print(random.choice(colors) + logo + rs)
-    print(f'{r}   Version: {w}2.1 {r}| Author: {w}Cryptonian{rs}')
+    print(f'{r}   Version: {w}2.5 {r}| Author: {w}Cryptonian{rs}')
 
 
 def clr():
