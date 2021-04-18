@@ -28,7 +28,7 @@ def banner():
     f = pyfiglet.Figlet(font='slant')
     logo = f.renderText('Genisys')
     print(random.choice(colors) + logo + rs)
-    print(f'{info}{g} Genisys Adder[USERNAME] V2.1{rs}')
+    print(f'{info}{g} Genisys Adder[USERNAME] V2.5{rs}')
     print(f'{info}{g} Author: github.com/Cryptonian007{rs}\n')
 
 def clscreen():
