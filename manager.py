@@ -108,7 +108,7 @@ while True:
                 break
         j.close()
         print('\n')
-        print(f'API ID  |            API Hash              |    Phone')
+        print(f'{lg}API ID  |            API Hash              |    Phone')
         print(f'==========================================================')
         i = 0
         for z in display:
