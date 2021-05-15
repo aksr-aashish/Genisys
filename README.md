@@ -1,7 +1,7 @@
 # :fire: Genisys V2.5
 <p align='center'>
   Powerful Telegram Members Scraping and Adding Toolkit<br>
-  <a href="https://telegram.me/Techmedies_1"><img src="https://img.shields.io/badge/Telegram-Techmedies-green"></a> <a href="https://www.instagram.com/cryptonian0"><img src="https://img.shields.io/badge/FollowOn-Instagram-green"></a>
+  <a href="https://telegram.me/Techmedies_1"><img src="https://img.shields.io/badge/Telegram-Techmedies-green"></a> <a href="https://twitter.com/cryptonian007?lang=en"><img src="https://img.shields.io/badge/FollowOn-Twitter-green"></a>
   </p>
 
 # :small_red_triangle_down: Features :small_red_triangle:
