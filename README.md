@@ -7,7 +7,7 @@
 
 # Buy me a coffee :coffee:
 
-LTC - MG35ToG6g9YxwQzKcQFismyX5iNxJJx2Bg
+LTC - MG35ToG6g9YxwQzKcQFismyX5iNxJJx2Bg<br>
 BTC - 35ZcHyk4JWGjbyn8FxHdUrRyAAg3bhJxME
 
 # :small_red_triangle_down: Features :small_red_triangle:
