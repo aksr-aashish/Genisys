@@ -59,6 +59,4 @@ Sometimes users may not get added at all, this may be because the account is pro
 
 # News
 
-* Adding in private groups feature will be available soon
-
-* Seperate tool will be launched for Linux/Android
+* New tool [Astra](https://github.com/Cryptonian007/Astra.git) has been recently released. Check it out
