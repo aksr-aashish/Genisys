@@ -1,3 +1,4 @@
+import requests
 from telethon.sync import TelegramClient
 from telethon.errors.rpcerrorlist import PhoneNumberBannedError
 import pickle, pyfiglet
@@ -16,10 +17,10 @@ n = Fore.RESET
 colors = [lg, r, w, cy, ye]
 
 def banner():
-	f = pyfiglet.Figlet(font='slant')
-	banner = f.renderText('Genisys')
-	print(f'{random.choice(colors)}{banner}{n}')
-	print(r+'  Version: 2.5 | Author: Cryptonian'+n+'\n')
+    f = pyfiglet.Figlet(font='slant')
+    banner = f.renderText('Genisys')
+    print(f'{random.choice(colors)}{banner}{n}')
+    print(r+'  Version: 2.5 | Author: Cryptonian'+n+'\n')
 #print('Author: github.com/Cryptonian007\n')
 #sleep(4)
 
@@ -38,15 +39,19 @@ while True:
     print(lg+'[2] Filter all banned accounts'+n)
     print(lg+'[3] List out all the accounts'+n)
     print(lg+'[4] Delete specific accounts'+n)
+    #print(lg+'[5] Update your Genisys'+n)
+    print(lg+'[5] Quit')
     a = int(input(f'\nEnter your choice: {r}'))
     if a == 1:
         with open('vars.txt', 'ab') as g:
+            newly_added = []
             while True:
                 a = int(input(f'\n{lg}Enter API ID: {r}'))
                 b = str(input(f'{lg}Enter API Hash: {r}'))
                 c = str(input(f'{lg}Enter Phone Number: {r}'))
                 p = ''.join(c.split())
                 pickle.dump([a, b, p], g)
+                newly_added.append([a, b, p])
                 ab = input(f'\nDo you want to add more accounts?[y/n]: ')
                 if 'y' in ab:
                     pass
@@ -54,6 +59,19 @@ while True:
                     print('\n'+lg+'[i] Saved all accounts in vars.txt'+n)
                     g.close()
                     sleep(3)
+                    clr()
+                    print(lg + '[*] Logging in from new accounts...\n')
+                    for added in newly_added:
+                        c = TelegramClient(f'sessions/{added[2]}', added[0], added[1])
+                        try:
+                        	c.start(added[2])
+                        	print(f'n\n{lg}[+] Logged in - {added[2]}')
+                        	c.disconnect()
+                        except PhoneNumberBannedError:
+                        	print(f'{r}[!] {added[2]} is banned! Filter it using option 2')
+                        	continue
+                        print('\n')
+                    input(f'\n{lg}Press enter to goto main menu...')
                     break
         g.close()
     elif a == 2:
@@ -107,8 +125,8 @@ while True:
             except EOFError:
                 break
         j.close()
-        print('\n')
-        print(f'{lg}API ID  |            API Hash              |    Phone')
+        print(f'\n{lg}')
+        print(f'API ID  |            API Hash              |    Phone')
         print(f'==========================================================')
         i = 0
         for z in display:
@@ -145,3 +163,20 @@ while True:
         print(f'\n{lg}[+] Account Deleted{n}')
         input(f'{lg}Press enter to goto main menu{n}')
         f.close()
+    elif a == 5:
+    	clr()
+    	banner()
+    	quit()
+'''
+    elif a == 5:
+        print(f'{lg}Checking for updates...')
+        try:
+            import requests
+            version = requests.get('link for the version file')
+            file_version = int(open('version.txt', 'r').readline())
+            if version > file_version:
+                print(f'{lg} [*] New update available[Version:{version}]')
+                prompt = str(print(f'{lg} [~] Do you want to install new update?[y/n]: {r}'))
+                if prompt == 'y' or prompt == 'yes' or prompt == 'Y':
+                    print(f'{lg}[i] Installing updates...')
+                    os.system('''
