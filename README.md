@@ -5,11 +5,6 @@
   <a href="https://telegram.me/Techmedies_1"><img src="https://img.shields.io/badge/Telegram-Techmedies-green"></a> <a href="https://twitter.com/cryptonian007?lang=en"><img src="https://img.shields.io/badge/FollowOn-Twitter-green"></a>
   </p>
 
-# Buy me a coffee :coffee:
-
-LTC - MG35ToG6g9YxwQzKcQFismyX5iNxJJx2Bg<br>
-BTC - 35ZcHyk4JWGjbyn8FxHdUrRyAAg3bhJxME
-
 # :small_red_triangle_down: Features :small_red_triangle:
 
 * ADDS IN BULK[by user id, not by username]
@@ -57,7 +52,12 @@ Sometimes users may not get added at all, this may be because the account is pro
   For any issue or help join our <a href='https://telegram.me/Techmedies_Hub'> Hub </a><br><br>
   <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/img2.png" width="403" height="309">
   </p>
-  
+
+# Buy me a coffee :coffee:
+
+LTC - MG35ToG6g9YxwQzKcQFismyX5iNxJJx2Bg<br>
+BTC - 35ZcHyk4JWGjbyn8FxHdUrRyAAg3bhJxME
+
 # Warning :warning:
 
 * This tool is official and completely free to use. Do not buy if anyone tries to sell by copying script
