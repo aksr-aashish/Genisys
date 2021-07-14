@@ -49,7 +49,7 @@ def clr():
         os.system('cls')
     else:
         os.system('clear')
-
+global scraped_grp
 with open('target_grp.txt', 'r') as f:
     scraped_grp = f.readline()
 f.close()
