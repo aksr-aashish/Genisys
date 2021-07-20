@@ -1,5 +1,6 @@
 # Genisys V2.5
 <p align='center'>
+  <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/GENISYS.png" width="200" height="200"><br>
   Powerful Telegram Members Scraping and Adding Toolkit<br>
   <a href="https://telegram.me/Techmedies_1"><img src="https://img.shields.io/badge/Telegram-Techmedies-green"></a> <a href="https://twitter.com/cryptonian007?lang=en"><img src="https://img.shields.io/badge/FollowOn-Twitter-green"></a>
   </p>
