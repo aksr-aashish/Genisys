@@ -49,7 +49,7 @@ Sometimes users may not get added at all, this may be because the account is pro
 
 # Screenshot
 
-  <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/img2.png" width="403" height="309">
+  <img src="https://github.com/Cryptonian007/Genisys/blob/main/img/Screenshot%202021-07-20%20094612.png">
   </p>
 
 # Buy me a coffee
