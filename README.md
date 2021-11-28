@@ -4,7 +4,7 @@
   Powerful Telegram Members Scraping and Adding Toolkit<br>
   <a href="https://telegram.me/Techmedies_1"><img src="https://img.shields.io/badge/Telegram-Techmedies-green"></a> <a href="https://twitter.com/cryptonian007?lang=en"><img src="https://img.shields.io/badge/FollowOn-Twitter-green"></a>
   </p>
-<b> Check out the cross platform script <a href='https://github.com/Cryptonian007/Astra.git'>Astra</a></b>
+<b> THIS PROJECT IS NO LONGER UNDER MAINTENANCE</b>
 
 # Features
 
