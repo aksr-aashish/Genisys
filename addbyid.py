@@ -54,12 +54,14 @@ with open(file, 'r', encoding='UTF-8') as f:
     rows = csv.reader(f, delimiter=',', lineterminator='\n')
     next(rows, None)
     for row in rows:
-        user = {}
-        user['username'] = row[0]
-        user['id'] = int(row[1])
-        user['access_hash'] = row[2]
-        user['group'] = row[3]
-        user['group_id'] = row[4]
+        user = {
+            'username': row[0],
+            'id': int(row[1]),
+            'access_hash': row[2],
+            'group': row[3],
+            'group_id': row[4],
+        }
+
         users.append(user)
     f.close()
 client = TelegramClient(f'sessions\\{phone}', api_id, api_hash)
@@ -74,7 +76,7 @@ target_m = client.get_entity(scraped)
 client.get_participants(target_m, aggressive=True)
 print(f'{info}{g} Adding members to {group_name}{rs}\n')
 while True:
-    if len(users) == 0:
+    if not users:
         break
     added_users = []
     lol = []

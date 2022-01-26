@@ -47,10 +47,8 @@ while True:
         f.close()
         break
 print(f'{INPUT}{cy} Choose an account to scrape members\n')
-i = 0
-for acc in accs:
+for i, acc in enumerate(accs):
     print(f'{lg}({w}{i}{lg}) {acc[2]}')
-    i += 1
 ind = int(input(f'\n{INPUT}{cy} Enter choice: '))
 api_id = accs[ind][0]
 api_hash = accs[ind][1]
@@ -73,10 +71,9 @@ op = int(input(f'{INPUT}{lg} Enter choice: '))
 if op == 0:
     username = input(f'{INPUT}{cy} Enter the exact username of the public group[Without @]: {r}')
     target_grp = 't.me/' + str(username)
-    group = client.get_entity(target_grp)
 else:
     target_grp = input(f'{INPUT}{cy} Enter private group invite link: {r}')
-    group = client.get_entity(target_grp)
+group = client.get_entity(target_grp)
 time = datetime.datetime.now().strftime("%H:%M")
 print('\n' + info + lg + ' Started at ' + rs + str(time))
 print(f'{info}{lg} Scraping members from {w}' + str(group.title))
@@ -89,22 +86,13 @@ with open("members\\members.csv", "w", encoding='UTF-8') as f:
     writer.writerow(['username', 'user id', 'access hash', 'group', 'group id'])
     if select == 'y':
         for member in members:
-            accept = True
-            if not member.status == UserStatusRecently():
-                accept = False
-            if accept:
-                if member.username:
-                    username = member.username
-                else:
-                    username = ''
+            if accept := member.status == UserStatusRecently():
+                username = member.username or ''
                 writer.writerow([username, member.id, member.access_hash, group.title, group.id])
         print(f'{success}{lg} Filtered by {w}LastSeenRecently')
     else:
         for member in members:
-            if member.username:
-                username = member.username
-            else:
-                username = ''
+            username = member.username or ''
             writer.writerow([username, member.id, member.access_hash, group.title, group.id])
 f.close()
 print(f'{success}{lg} Scraping Successful{rs}')

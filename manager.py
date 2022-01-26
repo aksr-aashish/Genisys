@@ -52,10 +52,8 @@ while True:
                 p = ''.join(c.split())
                 pickle.dump([a, b, p], g)
                 newly_added.append([a, b, p])
-                ab = input(f'\nDo you want to add more accounts?[y/n]: ')
-                if 'y' in ab:
-                    pass
-                else:
+                ab = input('\nDo you want to add more accounts?[y/n]: ')
+                if 'y' not in ab:
                     print('\n'+lg+'[i] Saved all accounts in vars.txt'+n)
                     g.close()
                     sleep(3)
@@ -77,14 +75,13 @@ while True:
     elif a == 2:
         accounts = []
         banned_accs = []
-        h = open('vars.txt', 'rb')
-        while True:
-            try:
-                accounts.append(pickle.load(h))
-            except EOFError:
-                break
-        h.close()
-        if len(accounts) == 0:
+        with open('vars.txt', 'rb') as h:
+            while True:
+                try:
+                    accounts.append(pickle.load(h))
+                except EOFError:
+                    break
+        if not accounts:
             print(r+'[!] There are no accounts! Please add some and retry')
             sleep(3)
         else:
@@ -101,9 +98,8 @@ while True:
                     except PhoneNumberBannedError:
                         print(r+str(phone) + ' is banned!'+n)
                         banned_accs.append(account)
-            if len(banned_accs) == 0:
+            if not banned_accs:
                 print(lg+'Congrats! No banned accounts')
-                input('\nPress enter to goto main menu')
             else:
                 for m in banned_accs:
                     accounts.remove(m)
@@ -115,40 +111,34 @@ while True:
                         pickle.dump([Id, Hash, Phone], k)
                 k.close()
                 print(lg+'[i] All banned accounts removed'+n)
-                input('\nPress enter to goto main menu')
+            input('\nPress enter to goto main menu')
     elif a == 3:
         display = []
-        j = open('vars.txt', 'rb')
-        while True:
-            try:
-                display.append(pickle.load(j))
-            except EOFError:
-                break
-        j.close()
+        with open('vars.txt', 'rb') as j:
+            while True:
+                try:
+                    display.append(pickle.load(j))
+                except EOFError:
+                    break
         print(f'\n{lg}')
-        print(f'API ID  |            API Hash              |    Phone')
-        print(f'==========================================================')
-        i = 0
+        print('API ID  |            API Hash              |    Phone')
+        print('==========================================================')
         for z in display:
             print(f'{z[0]} | {z[1]} | {z[2]}')
-            i += 1
-        print(f'==========================================================')
+        print('==========================================================')
         input('\nPress enter to goto main menu')
 
     elif a == 4:
         accs = []
-        f = open('vars.txt', 'rb')
-        while True:
-            try:
-                accs.append(pickle.load(f))
-            except EOFError:
-                break
-        f.close()
-        i = 0
+        with open('vars.txt', 'rb') as f:
+            while True:
+                try:
+                    accs.append(pickle.load(f))
+                except EOFError:
+                    break
         print(f'{lg}[i] Choose an account to delete\n')
-        for acc in accs:
+        for i, acc in enumerate(accs):
             print(f'{lg}[{i}] {acc[2]}{n}')
-            i += 1
         index = int(input(f'\n{lg}[+] Enter a choice: {n}'))
         phone = str(accs[index][2])
         session_file = phone + '.session'
@@ -157,12 +147,11 @@ while True:
         else:
             os.system(f'rm sessions/{session_file}')
         del accs[index]
-        f = open('vars.txt', 'wb')
-        for account in accs:
-            pickle.dump(account, f)
-        print(f'\n{lg}[+] Account Deleted{n}')
-        input(f'{lg}Press enter to goto main menu{n}')
-        f.close()
+        with open('vars.txt', 'wb') as f:
+            for account in accs:
+                pickle.dump(account, f)
+            print(f'\n{lg}[+] Account Deleted{n}')
+            input(f'{lg}Press enter to goto main menu{n}')
     elif a == 5:
     	clr()
     	banner()
@@ -179,4 +168,4 @@ while True:
                 prompt = str(print(f'{lg} [~] Do you want to install new update?[y/n]: {r}'))
                 if prompt == 'y' or prompt == 'yes' or prompt == 'Y':
                     print(f'{lg}[i] Installing updates...')
-                    os.system('''
+'''
