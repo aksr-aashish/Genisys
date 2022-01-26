@@ -63,12 +63,14 @@ with open(file, encoding='UTF-8') as f:
     rows = csv.reader(f, delimiter=',', lineterminator='\n')
     next(rows, None)
     for row in rows:
-        user = {}
-        user['username'] = row[0]
-        user['user_id'] = row[1]
-        user['access_hash'] = row[2]
-        user['group'] = row[3]
-        user['group_id'] = row[4]
+        user = {
+            'username': row[0],
+            'user_id': row[1],
+            'access_hash': row[2],
+            'group': row[3],
+            'group_id': row[4],
+        }
+
         users.append(user)
 client = TelegramClient(f'sessions\\{phone}', api_id, api_hash)
 client.connect()
@@ -104,7 +106,7 @@ for user in users:
     except KeyboardInterrupt:
         print(f'{error}{r} Aborted. Keyboard Interrupt{rs}')
         update_list(users, added_users)
-        if not len(users) == 0:
+        if users:
             print(f'{info}{g} Remaining users logged to {file}')
             logger = Relog(users, file)
             logger.start()
